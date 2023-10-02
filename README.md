@@ -218,7 +218,7 @@ Remember, the methodology to build and deploy may depend upon your application c
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ### Final Thoughts
 Promptopia, built with React.js and Next.js, is a testament to the grandeur that the marriage of creativity and advanced technology can achieve. It pushes the boundaries of creative inspiration, which offers a unique platform for the discovery, creation, and sharing of innovative prompts.
