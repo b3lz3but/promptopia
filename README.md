@@ -7,7 +7,7 @@ Promptopia is a groundbreaking open-source AI tool, built with React.js and Next
 ### Discover
 Interacting with the vast library of creative prompts has been made straightforward by utilizing React.js states and events. For example, a piece of the React.js code handling the discovery of prompts may look like-
 
-```jsx
+```js
 class PromptDiscover extends React.Component {
     constructor(props) {
       super(props);
@@ -39,7 +39,7 @@ class PromptDiscover extends React.Component {
 ### Create
 The creation functionality of Promptopia is made fluid by using controlled components in React.js. Here's a brief example of how the creation of prompts may be handled-
 
-```jsx
+```js
 class PromptCreate extends React.Component {
     constructor(props) {
       super(props);
@@ -78,7 +78,7 @@ class PromptCreate extends React.Component {
 ### Share
 The effortless sharing of the prompts is made possible through iterating over the array of prompts available in the state and using a share button which might handle API calls to share the prompt. This fosters a sense of collective creativity within the platform and allows users to share their sparks of inspiration with the world.
 
-```jsx
+```js
 class PromptShare extends React.Component {
     constructor(props) {
       super(props);
