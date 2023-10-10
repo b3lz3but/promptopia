@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
 
 // Component for creating a prompt
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
@@ -92,7 +94,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
       </div>
 
-      <button onClick={handleShare} className="absolute bottom-2 right-2 px-2 py-1 bg-orange-300 text-blue rounded text-xs">Share with...</button>
+      <FontAwesomeIcon icon={faShareSquare} onClick={handleShare} className="absolute bottom-2 right-2 text-orange-500 text-1xl cursor-pointer" />
       {shareError && <p className="text-red-500 mt-2">{shareError}</p>}
 
       <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
