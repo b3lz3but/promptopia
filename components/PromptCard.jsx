@@ -12,6 +12,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const router = useRouter();
 
   const [copied, setCopied] = useState("");
+  const [shareError, setShareError] = useState("");
 
   const handleProfileClick = () => {
     console.log(post);
@@ -26,6 +27,23 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
     setTimeout(() => setCopied(false), 3000);
+  };
+
+  const handleShare = async () => {
+    if (!navigator.share) {
+      setShareError('Sorry, your browser does not support the Share API');
+      return;
+    }
+
+    try {
+      await navigator.share({
+        title: 'Check out this prompt!',
+        text: post.prompt,
+        url: window.location.href,
+      });
+    } catch (error) {
+      setShareError('Sorry, there was an error sharing the prompt');
+    }
   };
 
   // Function to handle the delete of a post
@@ -73,6 +91,9 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
           />
         </div>
       </div>
+
+      <button onClick={handleShare} className="absolute bottom-2 right-2 px-2 py-1 bg-orange-300 text-blue rounded text-xs">Share with...</button>
+      {shareError && <p className="text-red-500 mt-2">{shareError}</p>}
 
       <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
       <p
