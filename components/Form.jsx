@@ -1,7 +1,9 @@
 import Link from "next/link";
 
+// Importing the useSession hook from NextAuth
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
+    // A div that will take the full width of its parent and centers its child elements
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
         <span className='blue_gradient'>{type} Post</span>
@@ -62,5 +64,5 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
     </section>
   );
 };
-
+// Exporting the Form component as the default export of this module
 export default Form;

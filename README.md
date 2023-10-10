@@ -195,7 +195,7 @@ git push heroku master
 
 ## GitHub Pages:
 
-For deploying on GitHub Pages, you can make use of the gh-pages package and update the scripts section in your package.json file.
+For deploying on GitHub Pages, you can make use of the gh-pages package and update the scripts section in your package.json file. 
 
 ```bash
 # Install gh-pages package

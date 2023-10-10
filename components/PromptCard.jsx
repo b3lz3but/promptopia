@@ -1,10 +1,11 @@
 "use client";
-
+// Importing necessary hooks
 import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
+// Component for creating a prompt
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
   const pathName = usePathname();
@@ -20,12 +21,14 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
 
+  // Function to handle the edit of a post
   const handleCopy = () => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
     setTimeout(() => setCopied(false), 3000);
   };
 
+  // Function to handle the delete of a post
   return (
     <div className='prompt_card'>
       <div className='flex justify-between items-start gap-5'>
@@ -99,4 +102,5 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   );
 };
 
+// Exporting the PromptCard component
 export default PromptCard;

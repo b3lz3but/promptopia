@@ -1,15 +1,21 @@
 "use client";
 
+// Importing necessary modules and hooks
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+
+// Nav component
 const Nav = () => {
+    // Using the useSession hook to get the current session
     const { data: session } = useSession();
   
+    // State variables for providers and dropdown toggle
     const [providers, setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false);
   
+    // Effect hook to fetch providers on component mount
     useEffect(() => {
       (async () => {
         const res = await getProviders();
@@ -17,8 +23,10 @@ const Nav = () => {
     })();
   }, []);
 
+  // Return the Nav component
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
+      {/* Logo and company name */}
       <Link href='/' className='flex gap-2 flex-center'>
         <Image
           src='/assets/images/logo.svg'
@@ -32,11 +40,14 @@ const Nav = () => {
 
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>
+        {/* If user is logged in, show user options */}
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
             <Link href='/create-prompt' className='black_btn'>
               Create Post
             </Link>
+            
+            <Link href='/faq' className='black_btn'>FAQ</Link>
 
             <button type='button' onClick={signOut} className='outline_btn'>
               Sign Out
@@ -53,6 +64,7 @@ const Nav = () => {
             </Link>
           </div>
         ) : (
+          // If user is not logged in, show sign in options
           <>
             {providers &&
               Object.values(providers).map((provider) => (
@@ -73,6 +85,7 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <div className='sm:hidden flex relative'>
+        {/* If user is logged in, show user options */}
         {session?.user ? (
           <div className='flex'>
             <Image
@@ -84,6 +97,7 @@ const Nav = () => {
               onClick={() => setToggleDropdown(!toggleDropdown)}
             />
 
+            {/* Dropdown menu */}
             {toggleDropdown && (
               <div className='dropdown'>
                 <Link
@@ -114,6 +128,7 @@ const Nav = () => {
             )}
           </div>
         ) : (
+          // If user is not logged in, show sign in options
           <>
             {providers &&
               Object.values(providers).map((provider) => (
@@ -135,4 +150,5 @@ const Nav = () => {
   );
 };
 
+// Exporting the Nav component
 export default Nav;

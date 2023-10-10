@@ -1,6 +1,9 @@
+// Import the Feed component from the components directory
 import Feed from "@components/Feed";
 
+// Define the Home component
 const Home = () => (
+  // Create a section with full width, centered content, and a column layout
   <section className='w-full flex-center flex-col'>
     <h1 className='orange_gradient head_text text-center'>
       Discover & Share
@@ -15,4 +18,5 @@ const Home = () => (
   </section>
 );
 
+// Export the Home component as the default export
 export default Home;
